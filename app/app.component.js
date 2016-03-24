@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.component', './observablesample.component', './promisesample.component', './onsubmitvalidation.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.component', './observablesample.component', './promisesample.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.comp
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, oldstyleasyncsample_component_1, observablesample_component_1, promisesample_component_1, onsubmitvalidation_component_1;
+    var core_1, router_1, oldstyleasyncsample_component_1, observablesample_component_1, promisesample_component_1;
     var AppComponent;
     return {
         setters:[
@@ -28,9 +28,6 @@ System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.comp
             },
             function (promisesample_component_1_1) {
                 promisesample_component_1 = promisesample_component_1_1;
-            },
-            function (onsubmitvalidation_component_1_1) {
-                onsubmitvalidation_component_1 = onsubmitvalidation_component_1_1;
             }],
         execute: function() {
             /**
@@ -46,13 +43,12 @@ System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.comp
                     core_1.Component({
                         selector: 'server-app',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<h1>{{title}}</h1>\n                <nav>\n                <ul>\n                    <li><a [routerLink]=\"['OldStyleAsyncSampleComponent']\">Old Style Async sample</a></li>\n                    <li><a [routerLink]=\"['ObservableSampleComponent']\">Observable sample</a></li>\n                    <li><a [routerLink]=\"['PromiseSampleComponent']\">Promise Sample</a></li>\n                    <li><a [routerLink]=\"['OnSubmitValidation']\">Form with Onsubmit Validation</a></li>\n                </ul>\n                </nav>\n                <router-outlet></router-outlet>"
+                        template: "<h1>{{title}}</h1>\n                <nav>\n                <ul>\n                    <li><a [routerLink]=\"['OldStyleAsyncSample']\">Old Style Async sample</a></li>\n                    <li><a [routerLink]=\"['ObservableSample']\">Observable sample</a></li>\n                    <li><a [routerLink]=\"['PromiseSample']\">Promise Sample</a></li>\n                </ul>\n                </nav>\n                <router-outlet></router-outlet>"
                     }),
                     router_1.RouteConfig([
                         { path: '/oldstyleasyncsample', name: 'OldStyleAsyncSample', component: oldstyleasyncsample_component_1.OldStyleAsyncSampleComponent },
                         { path: '/observablesample', name: 'ObservableSample', component: observablesample_component_1.ObservableSampleComponent },
-                        { path: '/promisesample', name: 'PromiseSample', component: promisesample_component_1.PromiseSampleComponent },
-                        { path: '/onsubmitvalidation', name: 'OnSubmitValidation', component: onsubmitvalidation_component_1.OnSubmitValidationComponent }
+                        { path: '/promisesample', name: 'PromiseSample', component: promisesample_component_1.PromiseSampleComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

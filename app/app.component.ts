@@ -3,7 +3,6 @@ import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {OldStyleAsyncSampleComponent} from './oldstyleasyncsample.component';
 import {ObservableSampleComponent} from './observablesample.component';
 import {PromiseSampleComponent} from './promisesample.component';
-import {OnSubmitValidationComponent} from './onsubmitvalidation.component';
 
 /**
  * Form samples
@@ -16,10 +15,9 @@ import {OnSubmitValidationComponent} from './onsubmitvalidation.component';
     template: `<h1>{{title}}</h1>
                 <nav>
                 <ul>
-                    <li><a [routerLink]="['OldStyleAsyncSampleComponent']">Old Style Async sample</a></li>
-                    <li><a [routerLink]="['ObservableSampleComponent']">Observable sample</a></li>
-                    <li><a [routerLink]="['PromiseSampleComponent']">Promise Sample</a></li>
-                    <li><a [routerLink]="['OnSubmitValidation']">Form with Onsubmit Validation</a></li>
+                    <li><a [routerLink]="['OldStyleAsyncSample']">Old Style Async sample</a></li>
+                    <li><a [routerLink]="['ObservableSample']">Observable sample</a></li>
+                    <li><a [routerLink]="['PromiseSample']">Promise Sample</a></li>
                 </ul>
                 </nav>
                 <router-outlet></router-outlet>`
@@ -27,8 +25,7 @@ import {OnSubmitValidationComponent} from './onsubmitvalidation.component';
 @RouteConfig([
   {path: '/oldstyleasyncsample', name: 'OldStyleAsyncSample', component: OldStyleAsyncSampleComponent},
   {path: '/observablesample', name: 'ObservableSample', component: ObservableSampleComponent},
-  {path: '/promisesample', name: 'PromiseSample', component: PromiseSampleComponent},
-  {path:'/onsubmitvalidation', name: 'OnSubmitValidation', component: OnSubmitValidationComponent}
+  {path: '/promisesample', name: 'PromiseSample', component: PromiseSampleComponent}
   ])
 export class AppComponent {
     private title: string = 'Server samples';

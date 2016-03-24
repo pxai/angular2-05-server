@@ -1,69 +1,16 @@
 <div>
             {{title}}
-            <form [ngFormModel]= "form" (ngSubmit)="signup()">
+            <form >
                 <div class="form-group">
                     <label for="login">Login</label>
                     <input type="text"
-                      ngControl="login"
-                      #login="ngForm"
+                      (keyup)="checkLogin()"
                       id="login"
                       class="form-control" />
                       <!-- other option
                       <div *ngIf="login is touched && login.errors"
                       -->
-                    <div
-                      *ngIf="login.touched && login.errors">
-                      <div
-                        *ngIf="login.errors.required"
-                        class="alert alert-warning">
-                        Login is required
-                      </div>
-                      <div
-                        *ngIf="login.errors.cannotContainHyphen"
-                        class="alert alert-warning">
-                        Login can not contain hyphen
-                      </div>
-                      <div
-                        *ngIf="login.errors.loginExists"
-                        class="alert alert-warning">
-                        Login already exists
-                      </div>
-                   </div>
                   </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password"
-                      ngControl="password"
-                      #password="ngForm"
-                      id="password" class="form-control" />
-                      <div
-                        *ngIf="password.touched && password.errors">
-                      <div
-                      *ngIf="!password.valid"
-                      class="alert alert-warning">Password is required</div>
-                    </div>
-                </div>
-                <div *ngIf="password.control.pending"
-                    class="alert alert-info">
-                  Checking password difficulty...
-                </div>
-                <div class="form-group">
-                    <label for="password2">Password2</label>
-                    <input type="password"
-                      ngControl="password2"
-                      #password2="ngForm"
-                      id="password2" class="form-control" />
-                      <div
-                        *ngIf="password2.touched && password2.errors">
-                        <div
-                          *ngIf="!password2.valid"
-                        class="alert alert-warning">Password2 is required</div>
-                        <div
-                          *ngIf="password2.errors.passwordsDoNotMatch"
-                        class="alert alert-warning">Passwords do not match</div>
-                      </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Sign in</button>
+                  <button id ="submit" class="btn btn-warning" (click)="cancelSubscription()">Cancel observable</button>
             </form>
 </div>

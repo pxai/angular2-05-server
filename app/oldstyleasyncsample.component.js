@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/common", "./login.validator"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/common"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "angular2/common", "./login.validator"], funct
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, login_validator_1;
+    var core_1, common_1;
     var OldStyleAsyncSampleComponent;
     return {
         setters:[
@@ -19,9 +19,6 @@ System.register(["angular2/core", "angular2/common", "./login.validator"], funct
             },
             function (common_1_1) {
                 common_1 = common_1_1;
-            },
-            function (login_validator_1_1) {
-                login_validator_1 = login_validator_1_1;
             }],
         execute: function() {
             /**
@@ -30,37 +27,34 @@ System.register(["angular2/core", "angular2/common", "./login.validator"], funct
              */
             OldStyleAsyncSampleComponent = (function () {
                 function OldStyleAsyncSampleComponent(formBuilder) {
-                    this.title = "Simple form with OnSubmit Validation";
+                    this.title = "Simple search form with Async call";
+                    this.users = [{ id: 1, username: 'esnowden', email: 'ed@kgb.ru' },
+                        { id: 2, username: 'jassange', email: 'julian@gob.pe' }];
                     // Array with properties for each field:
                     // default value and validator function
                     this.form = formBuilder.group({
-                        login: ["", common_1.Validators.compose([
-                                common_1.Validators.required,
-                                login_validator_1.LoginValidator.cannotContainInvalidCharacters
-                            ])],
-                        password: ["", common_1.Validators.required],
-                        password2: ["", common_1.Validators.required]
+                        login: ["", common_1.Validators.required]
                     });
                 }
+                /**
+                * async call to server to check wether user exists
+                */
+                OldStyleAsyncSampleComponent.prototype.checkLogin = function (login) {
+                    console.log("Checking login...");
+                    this.users = [];
+                    var url = "http://localhost:3000/api/users";
+                    $.getJSON(url, function (userdata) {
+                        console.log(userdata);
+                        this.users = userdata.data;
+                    });
+                    return this.users;
+                };
                 OldStyleAsyncSampleComponent.prototype.signup = function () {
-                    // For login with a server side check using a service
-                    // var result = signUpService.checkLogin(this.form.value);
-                    /*
-                      if (result) {
-                      this.form.find('login').setErrors({
-                        loginExists: true;
-                      });
-                    }
-                    */
                     if (this.form.find("login").value === "admin") {
                         this.form.find("login").setErrors({
                             loginExists: true
                         });
                     }
-                    if (this.form.find("password").value !== this.form.find("password2").value)
-                        this.form.find("password2").setErrors({
-                            passwordsDoNotMatch: true
-                        });
                     console.log("Sending form");
                     console.log(this.form.value);
                 };
