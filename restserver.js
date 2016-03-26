@@ -1,13 +1,15 @@
 /**
 * restserver.js
 * Minimum rest server using express
-* Pello Altadill - http://pello.info
+* Pello Altadill - http://pello.io
 */
 var express = require('express');
 var bodyParser = require('body-parser');
 // Fake DB
 var users = [{id: 1, username: 'esnowden', email: 'ed@kgb.ru'},
-            {id: 2, username: 'jassange', email: 'julian@gob.pe'}];
+            {id: 2, username: 'jassange', email: 'julian@gob.pe'},
+            {id: 3, username: 'eugene', email: 'mrkrabs@krustykrab.biz'},
+            {id: 4, username: 'bob', email: 'bob@bikini.bottom'}];
 
 var app = express();
 
