@@ -1,9 +1,9 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {MyFormSimpleComponent} from './myformsimple.component';
-import {SimpleValidationComponent} from './simplevalidation.component';
-import {SpecificValidationComponent} from './specificvalidation.component';
-import {NgFormValidationComponent} from './ngformvalidation.component';
+import {OldStyleAsyncSampleComponent} from './oldstyleasyncsample.component';
+import {ObservableSampleComponent} from './observablesample.component';
+import {PromiseSampleComponent} from './promisesample.component';
+import {OnSubmitValidationComponent} from './onsubmitvalidation.component';
 
 /**
  * Form samples
@@ -14,16 +14,22 @@ import {NgFormValidationComponent} from './ngformvalidation.component';
     selector: 'server-app',
     directives: [ROUTER_DIRECTIVES],
     template: `<h1>{{title}}</h1>
-                <nav> 
+                <nav>
                 <ul>
-                    <li><a [routerLink]="['SimpleForm']">Simple form</a></li>
+                    <li><a [routerLink]="['OldStyleAsyncSampleComponent']">Old Style Async sample</a></li>
+                    <li><a [routerLink]="['ObservableSampleComponent']">Observable sample</a></li>
+                    <li><a [routerLink]="['PromiseSampleComponent']">Promise Sample</a></li>
+                    <li><a [routerLink]="['OnSubmitValidation']">Form with Onsubmit Validation</a></li>
                 </ul>
                 </nav>
                 <router-outlet></router-outlet>`
 })
 @RouteConfig([
-  {path:'/simpleform', name: 'SimpleForm', component: MyFormSimpleComponent},
+  {path: '/oldstyleasyncsample', name: 'OldStyleAsyncSample', component: OldStyleAsyncSampleComponent},
+  {path: '/observablesample', name: 'ObservableSample', component: ObservableSampleComponent},
+  {path: '/promisesample', name: 'PromiseSample', component: PromiseSampleComponent},
+  {path:'/onsubmitvalidation', name: 'OnSubmitValidation', component: OnSubmitValidationComponent}
   ])
 export class AppComponent {
-    private title : string = 'Server samples';
+    private title: string = 'Server samples';
 }
