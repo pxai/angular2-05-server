@@ -1,0 +1,16 @@
+<div>
+            {{title}}
+            <form >
+                <div class="form-group">
+                    <label for="login">Login</label>
+                    <input type="text"
+                      (keyup)="checkLogin()"
+                      id="login"
+                      class="form-control" />
+                      <!-- other option
+                      <div *ngIf="login is touched && login.errors"
+                      -->
+                  </div>
+                  <button id ="submit" class="btn btn-warning" (click)="cancelSubscription()">Cancel observable</button>
+            </form>
+</div>
