@@ -79,4 +79,3 @@ app.delete('/api/user/delete/:id', function (req, res) {
 app.listen(3000, function () {
     console.log('now listening on http://localhost:3000');
 });
->>>>>>> 7cf409ab32150e8048e990a3aaaacb30966cea29
