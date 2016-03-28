@@ -37,7 +37,8 @@ export class HttpSampleComponent implements OnInit {
        login: ["", Validators.required]
      });
 
-     this.userService.save({id: 5, username: "ts", email: "change@me"});
+     this.userService.save({id: 5, username: "ts", email: "change@me"}).
+      subscribe(user => console.log(user));
    }
 
    /**

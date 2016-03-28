@@ -1,4 +1,5 @@
 import {Http} from "angular2/http";
+import {Headers} from "angular2/http";
 import "rxjs/add/operator/map";
 import { Injectable } from "angular2/core";
 import {User} from "./user";
@@ -22,10 +23,19 @@ export class UserService {
     // We expose only data using map operator, that must be imported
       return this.http.get("http://localhost:3000/api/users/")
       .map(result => result.json());
+
+      // With a promise
+      //return this.http.get("http://localhost:3000/api/users/")
+      //.map(result => result.json()).toPromise()
+      // then instead of subscribe use then();
+
     }
 
   public save(user: User) {
-    return this.http.post("http://localhost:3000/api/user/save", JSON.stringify(user))
+    //JSON.stringify("{id:5,username:'epa',email:'nunse'}"
+    var headers = new Headers();
+    headers.append('Content-type','application/json');
+    return this.http.post("http://localhost:3000/api/user/save", JSON.stringify(user), {headers: headers})
         .map(result => result.json());
   }
 

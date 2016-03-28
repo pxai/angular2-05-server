@@ -48,6 +48,7 @@ app.post('/api/user/save', function (req, res) {
   console.log('POST /api/user/save');
   var _id = (users.length+1);
   var user = { id: _id, username: req.body.username, email: req.body.email};
+  console.log(user);
   users.push(user);
   res.send({result: 'OK'});
 });

@@ -10,12 +10,13 @@ System.register(["angular2/http", "rxjs/add/operator/map", "angular2/core"], fun
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var http_1, core_1;
+    var http_1, http_2, core_1;
     var UserService;
     return {
         setters:[
             function (http_1_1) {
                 http_1 = http_1_1;
+                http_2 = http_1_1;
             },
             function (_1) {},
             function (core_1_1) {
@@ -38,9 +39,16 @@ System.register(["angular2/http", "rxjs/add/operator/map", "angular2/core"], fun
                     // We expose only data using map operator, that must be imported
                     return this.http.get("http://localhost:3000/api/users/")
                         .map(function (result) { return result.json(); });
+                    // With a promise
+                    //return this.http.get("http://localhost:3000/api/users/")
+                    //.map(result => result.json()).toPromise()
+                    // then instead of subscribe use then();
                 };
                 UserService.prototype.save = function (user) {
-                    return this.http.post("http://localhost:3000/api/user/save", JSON.stringify(user))
+                    //JSON.stringify("{id:5,username:'epa',email:'nunse'}"
+                    var headers = new http_2.Headers();
+                    headers.append('Content-type', 'application/json');
+                    return this.http.post("http://localhost:3000/api/user/save", JSON.stringify(user), { headers: headers })
                         .map(function (result) { return result.json(); });
                 };
                 UserService.prototype.update = function (user) {

@@ -44,7 +44,8 @@ System.register(["angular2/core", "angular2/common", "./user.service", "angular2
                     this.form = formBuilder.group({
                         login: ["", common_1.Validators.required]
                     });
-                    this.userService.save({ id: 5, username: "ts", email: "change@me" });
+                    this.userService.save({ id: 5, username: "ts", email: "change@me" }).
+                        subscribe(function (user) { return console.log(user); });
                 }
                 /**
                 * called after the constructor, need to implement
