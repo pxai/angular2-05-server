@@ -16,6 +16,7 @@ import {HttpSampleComponent} from './httpsample.component';
     template: `<h1>{{title}}</h1>
                 <nav>
                 <ul>
+                    <li><a href="/">Home</a></li>
                     <li><a [routerLink]="['OldStyleAsyncSample']">Old Style Async sample</a></li>
                     <li><a [routerLink]="['ObservableSample']">Observable sample</a></li>
                     <li><a [routerLink]="['PromiseSample']">Promise Sample</a></li>

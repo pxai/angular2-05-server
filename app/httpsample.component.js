@@ -1,4 +1,4 @@
-System.register(["angular2/core", "angular2/common"], function(exports_1, context_1) {
+System.register(["angular2/core", "angular2/common", "./user.service", "angular2/http"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1;
+    var core_1, common_1, user_service_1, http_1;
     var HttpSampleComponent;
     return {
         setters:[
@@ -19,6 +19,12 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
             },
             function (common_1_1) {
                 common_1 = common_1_1;
+            },
+            function (user_service_1_1) {
+                user_service_1 = user_service_1_1;
+            },
+            function (http_1_1) {
+                http_1 = http_1_1;
             }],
         execute: function() {
             // Optimal way to get just what we need:
@@ -27,16 +33,28 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
             // import "rxjs/add/operator/debounceTime";
             /**
             * Using a service to take care of the server interaction
+            * Tyry to use lifecycle hooks for better practices:
+            OnInit (first instantiated), OnDestroy, DoCheck, OnChanges
+            AfterContentInit, AftercontentChecked, AfterViewInit, AfterViewChecked
             */
             HttpSampleComponent = (function () {
-                function HttpSampleComponent(formBuilder) {
+                function HttpSampleComponent(formBuilder, userService) {
                     this.title = "Simple form with Observable async query";
-                    this.users = [{ id: 1, username: 'esnowden', email: 'ed@kgb.ru' },
-                        { id: 2, username: 'jassange', email: 'julian@gob.pe' }];
+                    this.userService = userService;
                     this.form = formBuilder.group({
                         login: ["", common_1.Validators.required]
                     });
+                    this.userService.save({ id: 5, username: "ts", email: "change@me" });
                 }
+                /**
+                * called after the constructor, need to implement
+                * because of the interface
+                */
+                HttpSampleComponent.prototype.ngOnInit = function () {
+                    console.log("Calling ngOnInit");
+                    this.userService.getUsers().
+                        subscribe(function (users) { return console.log(users); });
+                };
                 /**
                 * async call to server to check wether user exists
                 */
@@ -55,8 +73,9 @@ System.register(["angular2/core", "angular2/common"], function(exports_1, contex
                     core_1.Component({
                         selector: "control-group",
                         templateUrl: "app/httpsample.template.html",
+                        providers: [user_service_1.UserService, http_1.HTTP_PROVIDERS]
                     }), 
-                    __metadata('design:paramtypes', [common_1.FormBuilder])
+                    __metadata('design:paramtypes', [common_1.FormBuilder, user_service_1.UserService])
                 ], HttpSampleComponent);
                 return HttpSampleComponent;
             }());

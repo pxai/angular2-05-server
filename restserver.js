@@ -25,12 +25,15 @@ app.use(express.static('./'));
 // Begin CRUD operations
 // 0. Show all
 app.get('/api/users', function (req, res) {
+        console.log('GET /api/users');
         res.send({result: 'OK', data: users});
 });
 
 // 1. Select one
 app.get('/api/user/:id', function (req, res) {
         var _id = req.param('id');
+        console.log('GET /api/user/' + _id);
+
         for (var i=0;i<users.length;i++) {
           if (users[i].id == _id) {
             res.send({result: 'OK', data: users[i]});
@@ -42,6 +45,7 @@ app.get('/api/user/:id', function (req, res) {
 
 // 2. Save one
 app.post('/api/user/save', function (req, res) {
+  console.log('POST /api/user/save');
   var _id = (users.length+1);
   var user = { id: _id, username: req.body.username, email: req.body.email};
   users.push(user);
@@ -50,6 +54,7 @@ app.post('/api/user/save', function (req, res) {
 
 // 3. Update user
 app.put('/api/user/update', function (req, res) {
+  console.log('PUT /api/user/update');
   var user = { id: req.body.username, username: req.body.username, email: req.body.email};
   for (var i=0;i<users.length;i++) {
     if (users[i].id == user.id) {
@@ -64,6 +69,7 @@ app.put('/api/user/update', function (req, res) {
 // 4. Delete user
 app.delete('/api/user/delete/:id', function (req, res) {
         var _id = req.param('id');
+        console.log('POST /api/user/delete' + _id);
         for (var i=0;i<users.length;i++) {
           if (users[i].id == _id) {
             users.shift(i,1);

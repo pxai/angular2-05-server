@@ -46,7 +46,7 @@ System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.comp
                     core_1.Component({
                         selector: 'server-app',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<h1>{{title}}</h1>\n                <nav>\n                <ul>\n                    <li><a [routerLink]=\"['OldStyleAsyncSample']\">Old Style Async sample</a></li>\n                    <li><a [routerLink]=\"['ObservableSample']\">Observable sample</a></li>\n                    <li><a [routerLink]=\"['PromiseSample']\">Promise Sample</a></li>\n                    <li><a [routerLink]=\"['HttpSample']\">Http Sample</a></li>\n                </ul>\n                </nav>\n                <router-outlet></router-outlet>"
+                        template: "<h1>{{title}}</h1>\n                <nav>\n                <ul>\n                    <li><a href=\"/\">Home</a></li>\n                    <li><a [routerLink]=\"['OldStyleAsyncSample']\">Old Style Async sample</a></li>\n                    <li><a [routerLink]=\"['ObservableSample']\">Observable sample</a></li>\n                    <li><a [routerLink]=\"['PromiseSample']\">Promise Sample</a></li>\n                    <li><a [routerLink]=\"['HttpSample']\">Http Sample</a></li>\n                </ul>\n                </nav>\n                <router-outlet></router-outlet>"
                     }),
                     router_1.RouteConfig([
                         { path: '/oldstyleasyncsample', name: 'OldStyleAsyncSample', component: oldstyleasyncsample_component_1.OldStyleAsyncSampleComponent },
