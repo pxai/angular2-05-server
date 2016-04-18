@@ -2,10 +2,11 @@
   "name": "angular2-05-server",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "start": "concurrently \"npm run tsc:w\" \"npm run rest\" ",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "lite": "./node_modules/lite-server/bin/lite-server",
+    "rest": "node restserver.js",
     "typings": "typings",
     "postinstall": "typings install"
   },

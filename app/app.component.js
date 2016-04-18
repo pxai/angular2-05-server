@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './myformsimple.component', './simplevalidation.component', './specificvalidation.component', './ngformvalidation.component'], function(exports_1, context_1) {
+System.register(['angular2/core', 'angular2/router', './oldstyleasyncsample.component', './observablesample.component', './promisesample.component', './httpsample.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['angular2/core', 'angular2/router', './myformsimple.component',
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, myformsimple_component_1, simplevalidation_component_1, specificvalidation_component_1, ngformvalidation_component_1;
+    var core_1, router_1, oldstyleasyncsample_component_1, observablesample_component_1, promisesample_component_1, httpsample_component_1;
     var AppComponent;
     return {
         setters:[
@@ -20,17 +20,17 @@ System.register(['angular2/core', 'angular2/router', './myformsimple.component',
             function (router_1_1) {
                 router_1 = router_1_1;
             },
-            function (myformsimple_component_1_1) {
-                myformsimple_component_1 = myformsimple_component_1_1;
+            function (oldstyleasyncsample_component_1_1) {
+                oldstyleasyncsample_component_1 = oldstyleasyncsample_component_1_1;
             },
-            function (simplevalidation_component_1_1) {
-                simplevalidation_component_1 = simplevalidation_component_1_1;
+            function (observablesample_component_1_1) {
+                observablesample_component_1 = observablesample_component_1_1;
             },
-            function (specificvalidation_component_1_1) {
-                specificvalidation_component_1 = specificvalidation_component_1_1;
+            function (promisesample_component_1_1) {
+                promisesample_component_1 = promisesample_component_1_1;
             },
-            function (ngformvalidation_component_1_1) {
-                ngformvalidation_component_1 = ngformvalidation_component_1_1;
+            function (httpsample_component_1_1) {
+                httpsample_component_1 = httpsample_component_1_1;
             }],
         execute: function() {
             /**
@@ -40,19 +40,19 @@ System.register(['angular2/core', 'angular2/router', './myformsimple.component',
             // Notice textContent is a dom element
             AppComponent = (function () {
                 function AppComponent() {
-                    this.title = 'Form samples';
+                    this.title = 'Server samples';
                 }
                 AppComponent = __decorate([
                     core_1.Component({
-                        selector: 'forms-app',
+                        selector: 'server-app',
                         directives: [router_1.ROUTER_DIRECTIVES],
-                        template: "<h1>{{title}}</h1>\n                <nav> \n                <ul>\n                    <li><a [routerLink]=\"['SimpleForm']\">Simple form</a></li>\n                    <li><a [routerLink]=\"['SimpleValidation']\">Simple form with validation</a></li>\n                    <li><a [routerLink]=\"['SpecificValidation']\">Form with Specific validation</a></li>\n                    <li><a [routerLink]=\"['NgFormValidation']\">Form with ngForm</a></li>\n                </ul>\n                </nav>\n                <router-outlet></router-outlet>"
+                        template: "<h1>{{title}}</h1>\n                <nav>\n                <ul>\n                    <li><a href=\"/\">Home</a></li>\n                    <li><a [routerLink]=\"['OldStyleAsyncSample']\">Old Style Async sample</a></li>\n                    <li><a [routerLink]=\"['ObservableSample']\">Observable sample</a></li>\n                    <li><a [routerLink]=\"['PromiseSample']\">Promise Sample</a></li>\n                    <li><a [routerLink]=\"['HttpSample']\">Http Sample</a></li>\n                </ul>\n                </nav>\n                <router-outlet></router-outlet>"
                     }),
                     router_1.RouteConfig([
-                        { path: '/simpleform', name: 'SimpleForm', component: myformsimple_component_1.MyFormSimpleComponent },
-                        { path: '/simplevalidation', name: 'SimpleValidation', component: simplevalidation_component_1.SimpleValidationComponent },
-                        { path: '/specificvalidation', name: 'SpecificValidation', component: specificvalidation_component_1.SpecificValidationComponent },
-                        { path: '/ngformvalidation', name: 'NgFormValidation', component: ngformvalidation_component_1.NgFormValidationComponent }
+                        { path: '/oldstyleasyncsample', name: 'OldStyleAsyncSample', component: oldstyleasyncsample_component_1.OldStyleAsyncSampleComponent },
+                        { path: '/observablesample', name: 'ObservableSample', component: observablesample_component_1.ObservableSampleComponent },
+                        { path: '/promisesample', name: 'PromiseSample', component: promisesample_component_1.PromiseSampleComponent },
+                        { path: '/httpsample', name: 'HttpSample', component: httpsample_component_1.HttpSampleComponent }
                     ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);

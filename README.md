@@ -24,9 +24,9 @@ This will run typescript transpilation and set a watch on any further changes
 ```
 npm run tsc:w
 ```
-And this runs a little web server to serve the angular app
+And this runs a little web server with a rest API
 ```
-./node_modules/lite-server/bin/lite-server
+npm run rest
 ```
 
 ## About
